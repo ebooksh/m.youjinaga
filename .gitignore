@@ -5,3 +5,4 @@ Thumbs.db
 *.swp
 /dist
 node_modules
+*.log
