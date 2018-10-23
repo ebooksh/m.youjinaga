@@ -1,0 +1,189 @@
+// icon.less
+
+// @import "../variables";
+.icon{
+    position:relative;
+    display:inline-block;
+    width:@icon-size-default;
+    height:@icon-size-default;
+    vertical-align:middle;
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    &.icon-large{
+        width:@icon-size-large;
+        height:@icon-size-large;
+    }
+
+    &.icon-small{
+        width:@icon-size-small;
+        height:@icon-size-small;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+}
+
+// 状态
+.icon-status-error:after,
+.icon-status-error:before,
+.icon-status-success:after,
+.icon-status-warn:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%
+}
+
+.icon.icon-status-error,.icon.icon-status-success,.icon.icon-status-warn {
+    background-image: none
+}
+
+.icon-status-success {
+    background-color: #76ba41;
+    border-radius: 50%
+}
+
+.icon-status-success:after {
+    width: 14px;
+    height: 7px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    content: "";
+    -webkit-transform: translate(-50%,-70%) rotate(-45deg);
+    transform: translate(-50%,-70%) rotate(-45deg)
+}
+
+.icon-status-warn {
+    background-color: #3c82d2;
+    border-radius: 50%
+}
+
+.icon-status-warn:after {
+    content: "!";
+    font-style: normal;
+    color: #fff;
+    font-size: 18px;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%)
+}
+
+.icon-status-error {
+    background-color: #e12d2d;
+    border-radius: 50%
+}
+
+.icon-status-error:after,.icon-status-error:before {
+    height: 2px;
+    width: 15px;
+    background: #fff;
+    content: ""
+}
+
+.icon-status-error:after {
+    -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+    transform: translate(-50%,-50%) rotate(-45deg)
+}
+
+.icon-status-error:before {
+    -webkit-transform: translate(-50%,-50%) rotate(45deg);
+    transform: translate(-50%,-50%) rotate(45deg)
+}
+
+
+/*箭头*/
+.icon-chevron-left:before,
+.icon-chevron-right:before,
+.icon-chevron-up:before,
+.icon-chevron-down:before {
+  width: 13px;
+  height: 13px;
+  top: 50%;
+  left: 50%;
+  border: 0px solid #a8a8a8;
+}
+
+.icon-chevron-left.icon-small:before,
+.icon-chevron-right.icon-small:before,
+.icon-chevron-up.icon-small:before,
+.icon-chevron-down.icon-small:before {
+  width: 10px;
+  height: 10px;
+}
+
+.icon-chevron-left:before {
+  border-left-width: 3px;
+  border-bottom-width: 3px;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon-chevron-right:before {
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.icon-chevron-up:before {
+  border-top-width: 3px;
+  border-right-width: 3px;
+  -webkit-transform: translate(-50%, -25%) rotate(-45deg);
+  -ms-transform: translate(-50%, -25%) rotate(-45deg);
+      transform: translate(-50%, -25%) rotate(-45deg);
+}
+
+.icon-chevron-down:before {
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  -webkit-transform: translate(-50%, -85%) rotate(45deg);
+  -ms-transform: translate(-50%, -85%) rotate(45deg);
+      transform: translate(-50%, -85%) rotate(45deg);
+}
+
+
+.icon-search {
+    background-image:url(../../img/titlebar_search_orange.png);
+}
+
+.icon-daily,
+.icon-bowser,
+.icon-about,
+.icon-feedback {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../../img//slider_icon@2x.png);
+    -webkit-background-size: 137px 24px;
+    -o-background-size: 137px 24px;
+    background-size: 137px 24px;
+    float: left;
+    margin-right: 10px;
+}
+
+.icon-daily {
+    background-position: -3px 0;
+}
+
+.icon-bowser {
+    background-position: -38px 0
+}
+
+.icon-about {
+    background-position: -74px 0;
+}
+
+.icon-feedback {
+    background-position: -108px 0;
+}

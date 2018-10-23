@@ -1,0 +1,85 @@
+// header.less
+
+.web-hd {
+    position:fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    background-color: #fff;
+    height:44px;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.navbar {
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+
+    .left, .right {
+        position: absolute;
+        top: 50%;
+        .translateY(-50%);
+        padding: 15px 10px;
+    }
+
+    .left {
+        left: 0;
+        width: 19px;
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .right.search-btn {
+        padding: 10px;
+    }
+
+    .back {
+        width: auto;
+        color: #ffa200;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 44px;
+    }
+}
+
+.sup-nav {
+    width: 124px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 41px;
+}
+
+.sup-nav .inline-item {
+    position: relative;
+    font-size: 16px;
+    padding: 0 15px;
+}
+
+.sup-nav .inline-item.z-active {
+    border-bottom: 3px solid #ffa200;
+}
+
+.sup-nav .inline-item > a {
+    position: relative;
+    top: 1px;
+}
+
+.menu-btn .btn-border {
+    display: block;
+    height: 3px;
+    background-color: #ffa200;
+    width: 19px;
+    margin-top: 3px;
+}
+
+.menu-btn .btn-border:first-child {
+    margin-top: 0px;
+}

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SPA-DEMO</title>
+    <!-- <link rel="stylesheet" href="css/app.css"> -->
+    <link rel="stylesheet" href="build/css/app.min.css">
+    <script type="javascript/template" id="searchTmpl">
+        <header class="web-hd">
+            <div class="searchbar">
+                <label for="" class="inner input">
+                    <i class="icon icon-search"></i>
+                    <input placeholder="输入关键词" type="text" class="text">
+                </label>
+                <a class="cancel">取消</a>
+            </div>
+        </header>
+        <div class="web-bd">
+            {% if(records.length>0) { %}
+                <div class="history-box">
+                    <div class="list">
+                        {% _.each(records, function (item) { %}
+                            <a class="item record-item">{%- item %}</a>
+                        {% }) %}
+                    </div>
+                    <a class="clear item">清除历史纪录</a>
+                </div>
+            {% } %}
+            <div class="results">
+            </div>
+        </div>
+    </script>
+    <script type="javascript/template" id="infoTmpl">
+        <header class="web-hd">
+            <div class="navbar">
+                <a class="back left">返回</a>
+            </div>
+        </header>
+        <div class="web-bd">
+            <div class="content-card">
+                {% if(cover != null) { %}
+                    <img src="{%- cover %}" alt="">
+                {% } %}
+                <div class="main">
+                    <h4 class="header">{%- header %}</h4>
+                    <div class="text">
+                        {%- intro %}
+                    </div>
+                    {% if(link) { %}
+                        <blockquote>
+                            详细请戳：<a class="link-out" href="{%- link %}">这里</a>
+                        </blockquote>
+                    {% } %}
+                    <div class="other clearfix">
+                        {% _.each(tag, function(item){ %}
+                            <span class="tag">#{%- item.tagName %}</span>
+                        {% }) %}
+                        <div class="pull-right">
+                            <!-- <span class="key">浏览：</span><span>2228</span> -->
+                            <span class="key">评论：</span><span id="commentsNum"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-area">
+                <div class="comments wrap z-hide">
+                </div>
+                <a class="morecomment z-hide">更多 >></a>
+                <div class="comment wrap">
+                    <textarea name="" id="" cols="30" placeholder="发表新评论" rows="10"></textarea>
+                    <div class="other">
+                        <button class="btn success" id="comment">评论</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="javascript/template" id="indexTmpl">
+        <header class="web-hd">
+            <div class="navbar">
+                <a href="javascript:void(0);" class="menu-btn left">
+                    <span class="btn-border"></span>
+                    <span class="btn-border"></span>
+                    <span class="btn-border"></span>
+                </a>
+                <div class="nav-area">
+                    <nav class="sup-nav inline">
+                        <li class="sup-nav-item inline-item" data-type="recommend"><a>推荐</a></li>
+                        <li class="sup-nav-item inline-item" data-type="browser"><a>发现</a></li>
+                    </nav>
+                </div>
+                <a class="right search-btn off">
+                    <i class="icon icon-search"></i>
+                </a>
+            </div>
+        </header>
+        <div class="web-bd">
+            
+        </div>
+        <aside class="web-aside">
+            <div class="login-area">
+                <div class="inner">
+                    <a class="user-profile">
+                        <img src="img/slider_avatar_unlogin@2x.png" class="icon-avatar" alt="">
+                    </a>
+                    <a href="#publish" class="login-btn button">发起</a>
+                </div>
+            </div>
+            <ul class="menu">
+                <li class="menu-item z-active" data-type="recommend"><a href="#recommend"><i class="icon icon-daily"></i>每日推荐</a></li>
+                <li class="menu-item" data-type="browser"><a href="#browser"><i class="icon icon-bowser"></i>发现新奇</a></li>
+                <li class="menu-item"><a href=""><i class="icon icon-about"></i>关于我们</a></li>
+                <li class="menu-item"><a href=""><i class="icon icon-feedback"></i>意见反馈</a></li>
+            </ul>
+        </aside>
+    </script>
+    <script type="javascript/template" id="publishTmpl">
+        <header class="web-hd">
+            <div class="navbar">
+                <a class="back left">返回</a>
+                <p class="title">发布活动</p>
+            </div>
+        </header>
+        <div class="web-bd">
+            <div class="list">
+                <p class="item item-divider">基本信息</p>
+                <div class="item-value field-row item email">
+                    <label class="key" for="">邮箱</label>
+                    <input type="text" class="form-control val" name="" id="" value="{%- email %}">
+                </div>
+                <div class="item-value field-row item header">
+                    <label class="key" for="">标题</label>
+                    <input type="text" class="form-control val" name="" id="" value="{%- header %}">
+                </div>
+                <a id="selectTag" class="item item-value chevron-right">
+                    <span class="key">标签</span>
+                    <!-- <span class="val">{%- tag.join("-") %}</span> -->
+                    <span class="val">
+                    {% var temp=_.map(tag, function(item, index){return item.tagName;}); print(temp.join("-")) %}
+                    </span>
+                </a>
+                <a href="" class="item item-value chevron-right time">
+                    <span class="key">时间</span>
+                    <span class="val">从 <span class="begin" data-toggle="selectgear" data-target="#timeSelect">{%- beginTime %}</span> 到 <span class="end" data-toggle="selectgear" data-target="#timeSelect">{%- endTime %}</span></span>
+                </a>
+                <div class="item-value field-row item link">
+                    <label class="key" for="">外链</label>
+                    <input type="text" class="form-control val" name="" id="" value="{%- link %}">
+                </div>
+                <a id="editIntro" class="item item-value chevron-right">
+                    <span class="key">介绍</span>
+                    <span class="val">{%- intro %}</span>
+                </a>
+                <p class="item item-divider">上传封面图</p>
+            </div>
+            <div class="uploadarea">
+                <div class="imglist">
+                    {% if(cover){ %}
+                        <div class="item"><img src="{%- cover %}"></div>
+                    {% } %}
+                </div>
+                <div class="uploadbtn">
+                    <input type="file" name="" class="uploadinput" id="uploadIpt">
+                </div>
+            </div>
+            <div class="btns padding">
+                <a class="btn success block" id="publish">发布</a>
+            </div>
+        </div>
+        <div id="timeSelect" class="selectgear">
+            <div class="hd">
+                时间选择器
+                <a class="cancel" data-dismiss="selectgear">
+                    <i class="icon icon-status-error"></i>
+                </a>
+            </div>
+            <div class="bd">
+                <div class="inner col-3">
+                    <div class="col" id="year">
+                    </div>
+                    <div class="col" id="month">
+                    </div>
+                    <div class="col" id="day">
+                    </div>
+                </div>
+            </div>
+            <div class="ft">
+                <a id="timeSelBtn" class="btn block success">确定</a>
+            </div>
+        </div>
+    </script>
+</head>
+<body>
+    <!-- <script src="js/lib/zepto.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="js/init.js"></script> -->
+
+    <script src="build/js/lib.min.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

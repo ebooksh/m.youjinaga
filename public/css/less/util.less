@@ -1,0 +1,85 @@
+// util.less
+
+
+// @import "prefixes.less";
+// @import "variables.less";
+
+.clearfix{
+    *zoom: 1;
+    &:before,
+    &:after{
+        display:table;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after{
+        clear: both;
+    }
+}
+
+.z-hide{
+    display: none;
+}
+
+.z-opacity-hide{
+    opacity: 0;
+}
+
+.z-show{
+    display: block;
+}
+
+.z-opacity-show{
+    opacity: 1;
+}
+
+.z-invisible{
+    visibility: hidden;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.margin{
+    margin: @margin-default !important;
+}
+
+.vertical-margin{
+    margin-top: @margin-default !important;
+    margin-bottom: @margin-default !important;
+}
+
+.no-margin{
+    margin: 0 !important;
+}
+
+.padding {
+  padding: @padding-default !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.tap-highlight-transparent{
+    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.disable-user-behavior{
+    .user-select(none);
+    .tap-highlight-transparent;
+    -webkit-user-drag: none;
+    // 其他等
+}

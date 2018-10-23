@@ -1,0 +1,154 @@
+// reset.less
+
+// @import "prefixes.less";
+
+html{
+    font-family: sans-serif;
+    .user-select(none);
+    .text-size-adjust(100%);
+}
+
+// remove default margin and padding
+*{
+    margin: 0;
+    padding:0;
+}
+
+// HTML5 display definitions
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary{
+    display: block;
+}
+
+audio,
+canvas,
+video {
+    vertical-align:middle;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+audio:not([controls]){
+    display: none;
+    height: 0;
+}
+
+script{
+    display: none!important;
+}
+
+// links
+a{
+    background-color: transparent;
+    // remove tap highlight color
+    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+    &[href]:hover{
+        cursor:pointer;
+    }
+}
+
+// remove default outlines
+a,
+button,
+:focus,
+a:focus,
+button:focus, // 为什么要针对a,button做特殊处理???
+a:active,
+a:hover{
+    outline: 0;
+}
+
+
+
+// typography
+// 属于重置里的排版部分
+// =====================================
+abbr[title]{
+    border-bottom: 1px dotted;
+}
+
+b,
+strong{
+    font-weight:bold;
+}
+
+small{
+    font-size: 80%;
+}
+
+img{
+    border: none;
+    .user-select(none);
+}
+
+figure{
+    margin: 1em 40px;
+}
+
+hr{
+    .box-sizing(content-box);
+    height: 0;
+}
+
+// 引用，双引号，单引号
+q{
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+
+// form
+// ================================================
+button,
+input,
+select,
+textarea{
+    margin: 0;
+    font-size: 100%;
+    font-family: inherit;
+    color: inherit;
+    outline: none;
+    -webkit-font-smoothing:inherit;
+    background-image: none;
+}
+
+// Remove inner padding and border in Firefox 4+
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+    padding: 0;
+    border: 0;
+}
+
+// 1. Remove default vertical scrollbar in IE 8/9.
+// 2. Improve readability and alignment in all browsers.
+// 3. Prevent user to resize textarea
+textarea{
+    resize:none;
+    vertical-align:top;
+    overflow: auto;
+}
+
+
+// Tables
+// ====================================================
+table{
+    border-spacing:0;
+    border-collapse: collapse;
+}
+
+td,
+th{
+    padding: 0;
+}

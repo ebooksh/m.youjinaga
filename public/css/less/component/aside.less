@@ -1,0 +1,81 @@
+/*
+* aside.less
+* 
+* 变量：
+* 依赖：
+*/
+
+
+.web-aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 86%;
+    z-index: 99;
+    background-color: #fff;
+    // display: none; // 默认下display是不会执行transition动画的，麻烦
+    visibility: hidden;
+    .transform(translateX(-100%));
+    .transition-transform(ease .25s);
+}
+
+.web-aside.visible {
+    visibility: inherit;
+}
+
+.web-aside.in {
+    .transform(translateX(0));
+}
+
+.login-area .inner {
+    background-color: #f0f4f2;
+    padding: 12px 5.4%;
+    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.login-area .user-profile {
+    display: inline-block;
+}
+
+.login-area .icon-avatar {
+    width: 33px;
+    height: 33px;
+    vertical-align: middle;
+}
+
+.login-area .login-btn {
+    margin-left: 5px;
+    background-color: #fff;
+    color: #FFA200;
+    border: 1px solid #e9e9e9;
+    padding: 6px 15px;
+    vertical-align: middle;
+}
+
+.web-aside .menu-item {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.web-aside .menu-item.z-active:before {
+    position: absolute;
+    left: 0;
+    background-color: #FFA200;
+    width: 4.8px;
+    height: 29px;
+    top: 50%;
+    margin-top: -15px;
+    content: "";
+}
+
+.web-aside .menu-item a {
+    border-bottom: 1px solid #efefef;
+    font-size: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    line-height: 1.5;
+}

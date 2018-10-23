@@ -1,0 +1,125 @@
+// selecgear.less
+
+.selectgear {
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #555;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 80%;
+    z-index: 100;
+    display: none;
+    .translate(-50%, -75%);
+    // .transition-transform(.3s);
+    .transition(all .3s ease);
+    opacity: 0;
+
+    &.in {
+        .translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    .hd, .bd, .ft {
+        padding: 8px 10px;
+    }
+    .hd {
+       border-bottom: 1px solid #eee;
+       text-align: center;
+       font-size: 14px;
+       position: relative;
+       padding-left: 30px;
+       padding-right: 30px;
+
+       .cancel {
+            position: absolute;
+            right: 0;
+            padding: 5px;
+            top: 0;
+
+            .icon {
+                background-color: #c7c7c7;
+                .scale(.8);
+            } 
+       }
+    }
+    .bd {
+       height: 150px;
+       overflow: hidden;
+       padding-left: 0;
+       padding-right: 0;
+    }
+    .ft {
+       border-top: 1px solid #eee;
+
+       .btn {
+           margin: 5px;
+           line-height: 20px;
+       }
+    }
+    .inner {
+        font-size: 0;
+        height: 100%;
+        position: relative;
+    }
+    .col {
+        // 1.inline-block,text-align
+        // 2.table-cell
+        height: 100%;
+        font-size: 12px;
+        display: inline-block;
+        text-align: center;
+        overflow-y: hidden;
+        position: relative;
+
+        // /* 使用table－cell的话height,overflow的设置就不起作用了？！！*/
+        // /*display: table-cell;
+        // width: 1%; // 1%有效果但50%没有效果，为什么？*/
+
+        .items {
+            position: relative;
+        }
+        &:first-child .items {
+            margin-left: 15px;
+        }
+        &:last-child .items {
+            margin-right: 15px;
+        }
+
+        .item {
+           line-height: 25px;
+           display: block;
+        }
+
+        // 用遮罩的方式实现效果，我他妈机智呀
+        &:before, &:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            background-color:rgba(255, 255, 255, 0.5);
+            display: block;
+            left: 0;
+            z-index: 2; // 因为.items元素设置transform属性会创建一个新的stacking context（层叠上下文）
+        }
+        &:before {
+            top: 0;
+            height: 49px;
+            border-bottom: 1px solid #eee;
+        }
+        &:after {
+            bottom: 0;
+            height: 74px;
+            border-top: 1px solid #eee;
+        }
+    }
+    .col-1 .col {
+       width: 100%;
+    }
+    .col-2 .col {
+       width: 50%;
+    }
+    .col-3 .col {
+       width: 33.33333%;
+    }
+}

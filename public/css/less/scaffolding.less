@@ -1,0 +1,128 @@
+// scaffolding.less
+
+
+body{
+    background: #efefef;
+    color:@gray;
+    font-size: @font-size-default;
+    font-family: @font-family-default;
+    text-rendering: optimizeLegibility;
+    -webkit-user-drag:none;
+    .backface-visibility(hidden);
+    .font-smoothing(antialiased);
+}
+
+body:before {
+    content: "";
+    position: fixed;
+}
+
+a{
+    color: inherit;
+    *color: @brand-primary;
+    text-decoration: none;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: inherit;
+    font-weight: bold;
+    color: inherit;
+}
+
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 10px 0 10px;
+  border-left: 4px solid #969696;
+}
+
+button,
+input,
+select,
+textarea{
+    border-color: @border-color-default;
+}
+
+
+/*配合这个网站的通用的模块*/
+.web-bd {
+    padding-top: 44px;
+    position: relative;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.inline{
+    list-style: none;
+    font-size: 0;
+
+    &:before,
+    &:after {
+        display:table;
+        height:0;
+        content:"";
+    }
+    &:after {
+        clear:both;
+    }
+    .inline-item{
+        float:left;
+        font-size: @font-size-default;
+    }
+}
+
+.textarea {
+    margin: 10px;
+    padding: 7px;
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+
+    textarea {
+        width: 100%;
+        resize: none;
+        border: none;
+        background: transparent;
+    }
+}
+
+.mask {
+    position:fixed;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:9;
+    background-color:rgba(0, 0, 0, 0.5);
+    .transition(opacity linear .25s);
+    opacity: 0;
+}
+
+.mask.in {
+    opacity: 1;
+}
+
+.mainview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;
+}
+
+.fade {
+    .transition(opacity linear .25s);
+}
+
+.fade.out {
+    opacity: 0;
+}
+
+.fade.out.mainview {
+    opacity: 0.1;
+    z-index: 99;
+}
+
+

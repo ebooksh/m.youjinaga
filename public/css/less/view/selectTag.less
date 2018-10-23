@@ -1,0 +1,31 @@
+// selectTag.less
+
+.tags {
+    padding: 10px;
+    font-size: 0;
+
+    .item {
+        width: 25%;
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: top;
+
+        .inner {
+            background: #fff;
+            border: 1px solid #eee;
+            display: block;
+            margin: 3px;
+            text-align: center;
+            line-height: 1.4;
+            padding: 5px;
+        }
+
+        &.z-active {
+            .inner {
+                color: #fff;
+                background: #ffa200;
+            }
+        }
+    }
+
+}

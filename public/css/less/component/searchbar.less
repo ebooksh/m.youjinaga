@@ -1,0 +1,38 @@
+// searchbar.less
+
+.searchbar {
+    background-color: #fff;
+    margin-bottom: 14px;
+    padding: 7px 10px;
+    position: relative;
+    .input {
+        border-radius: 6px;
+        background: #eee;
+        position: relative;
+        display: block;
+        padding: 5px 8px 5px 32px;
+        height: 20px;
+        margin-right: 38px;
+
+        .icon-search {
+            position: absolute;
+            top: 50%;
+            .translate(0, -50%);
+            left: 5px;
+        }
+        .text {
+            background: transparent;
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .cancel {
+        padding: 5px 10px;
+        color: #666;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        .translate(0, -50%);
+    }
+}

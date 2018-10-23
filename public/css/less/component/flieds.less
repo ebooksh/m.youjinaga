@@ -1,0 +1,96 @@
+// fiels.less
+
+.list {
+    @ceilPadding: 14px;
+    @padding: 10px;
+
+    .item {
+        border: 1px solid #eee;
+        padding: @padding;
+        background: #fff;
+        line-height: 28px;
+        display: block;
+        // overflow: hidden;
+        position: relative;
+        margin-top: -1px;
+
+        &:before {
+            position: absolute;
+            height: 2px;
+            background: #fff;
+            width: @padding;
+            top: -1px;
+            left: 0;
+            content: "";
+            display: block;
+        }
+        &:first-child,
+        &.item-divider {
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    .item.item-divider {
+        color: #999;
+        padding-top: 13px;
+        padding-bottom: 7px;
+        font-size: 12px;
+        background: transparent;
+        line-height: 1;
+    }
+
+    .item.item-value {
+        .val, .key {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .val {
+            float: right;
+            max-width: 85%;
+            color:#999;
+        }
+    }
+
+    .item.chevron-right {
+        padding-right: 30px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            right: 7px;
+            top: 50%;
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid;
+            border-bottom: 2px solid;
+            border-color: #ccc;
+            .transform(~"translate(-50%, -50%) rotate(-45deg)");
+        }
+    }
+
+    .item.field-row {
+        display: table;
+        width: 100%;
+        box-sizing: border-box;
+
+        .key, .form-control {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .key {
+            width: 1%;
+        }
+        .form-control {
+            width: 100%;
+            border: none;
+            text-align: right;
+            height: 28px;
+        }
+    }
+}

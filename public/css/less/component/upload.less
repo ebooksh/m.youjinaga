@@ -1,0 +1,51 @@
+// upload.less
+
+.uploadarea {
+    padding: 10px;
+    font-size: 0;
+
+    .imglist,
+    .uploadbtn,
+    .item {
+        display: inline-block;
+        position: relative;
+    }
+    .imglist img {
+        height: 100%;
+        width: 100%;
+    }
+    .uploadbtn,
+    .item {
+        border: 1px dashed #ccc;
+        height: 90px;
+        width: 90px;
+        margin-right: 8px;
+    }
+    .uploadinput {
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .uploadbtn {
+        &:before, &:after {
+            display: block;
+            content: "";
+            background: #ccc;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            .translate(-50%, -50%);
+        }
+        &:before {
+            height: 50%;
+            width: 3px;
+        }
+        &:after {
+            width: 50%;
+            height: 3px;
+        }
+    }
+}
